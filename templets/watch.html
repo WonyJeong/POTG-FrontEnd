@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>POTG</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    <link rel="stylesheet" href="../static/CSS/watch.css">
+    <script src="../static/JS/jquery-3.4.1.min.js"></script>
+
+    <!--Load HTML Files-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#leftSidebar").load("leftSidebar.html");
+            $("#headers").load("headers.html");
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".searchbar-container-filter>i").click(function () {
+                var submenu = $(".searchbar-container-filtermenu");
+                submenu.animate({ height: "toggle", opacity: "toggle" }, "fast");
+                submenu.css('display', 'block');
+            });
+        });
+    </script>
+</head>
+
+<body>
+        <div id = "leftSidebar"></div>
+    <div id="headers"></div>
+    
+    <div class="content" style = "left : 350px;">
+        <div class="searchbar-container">
+            <div class="searchbar-container-filter">
+                <i class="fas fa-bars "><a>하이라이트 커스터마이징</a></i>
+            </div>
+
+            <div class="searchbar-container-filtermenu">
+                <div class="searchbar-container-filterlist">
+                    <h5>팀 구분</h5>
+                    <ul>
+                        <li><a href="#">홈</a></li>
+                        <li><a href="#">어웨이</a></li>
+                    </ul>
+                </div>
+                <div class="searchbar-container-filterlist">
+                        <h5>플레이</h5>
+                        <ul>
+                            <li><a href="#">덩크</a></li>
+                            <li><a href="#">3점슛</a></li>
+                            <li><a href="#">2점슛</a></li>
+                            <li><a href="#">스틸</a></li>
+                            <li><a href="#">레이업슛</a></li>
+                            <li><a href="#">자유투</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+        <div class="search-container">
+            <div class="search-list-head"></div>
+            <div class="search-list">
+                <div class="search-list-group">
+                    <video class="search-list-group-video" controls>
+                        <source src="../video/data1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class = "AA">
+                    <h3>[11.29] Lakers vs Spurs Game Highlights! 2019 NBA Season</h3>
+                    <p>조회수 963  추천수 153   •2019. 11. 29.   </p>
+                </div>
+                <div class = "BB">
+                    <button class = "BBB">추천</button>
+                </div>
+            </div>
+        </div>
+        <div class = "CC">
+            <h3>경기 기록</h3>
+            <i class = "DD"></i>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+.watch-container{
+    margin-top:13px;
+}
+
+.watch-container{
+    border: 1px solid gold;
+}
+
+
+.watch-customizing-header i{
+    margin-right:10px;
+}
+
+.watch-customizing-header span{
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 20px;
+}

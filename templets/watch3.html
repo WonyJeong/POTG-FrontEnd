@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>POTG</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    <link rel="stylesheet" href="../static/CSS/watch3.css">
+    <script src="../static/JS/jquery-3.4.1.min.js"></script>
+
+    <!--Load HTML Files-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#leftSidebar").load("leftSidebar.html");
+            $("#headers").load("headers.html");
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".searchbar-container-filter>i").click(function () {
+                var submenu = $(".searchbar-container-filtermenu");
+                submenu.animate({ height: "toggle", opacity: "toggle" }, "fast");
+                submenu.css('display', 'block');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="leftSidebar"></div>
+    <div id="headers"></div>
+
+    <div class="content" style="margin-left:20%">
+        <div class="watch-container">
+            <div class="watch-customizing-header">
+                <i class="fas fa-bars"></i>
+                <span>하이라이트 커스터마이징</span>
+            </div>
+            <div class ="watch-customi">
+                <div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

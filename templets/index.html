@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>POTG</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    <link rel="stylesheet" href="../static/CSS/index.css">
+    <link rel="stylesheet" href="../static/CSS/tb_calendar.css">
+
+    <script src="../static/JS/jquery-3.4.1.min.js"></script>
+
+    <!--Load HTML Files-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#leftSidebar").load("leftSidebar.html");
+            $("#headers").load("headers.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="leftSidebar"></div>
+    <div id="headers"></div>
+    <div class="content">
+        <div class="content-head">
+            <h3>오늘 경기 일정/결과 <a href="calendar.html" class="content-head-a">전체 경기 일정/결과</a></h3>
+        </div>
+
+        <div class="content-today_calendar">
+            <!--Naver sport_nba crawling-->
+            <div class="sch_volleyball tb_nba">
+                <div class="sch_tb ">
+                    <table cellspacing="0" border="1">
+                        <colgroup>
+                            <col width="100">
+                            <col width="55">
+                            <col width=400>
+                            <col width="166">
+                            <col width="250">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <td rowspan="8"><span class="td_date"><strong>11.13</strong> (수)</span></td>
+
+                                <td><span class="td_hour">09:00</span></td>
+                                <td><span class="team_lft">오클라호마</span>
+                                    <img src="https://dthumb-phinf.pstatic.net/?type=f92_92&amp;refresh=1&amp;src=https://imgsports.pstatic.net/images/emblem/new/nba/default/OKC.png"
+                                        onerror="javascript:this.src='https://imgsports.pstatic.net/images/emblem/new/no_emblem_s_square.png';"
+                                        width="25" height="" alt="오클라호마" title="오클라호마">
+                                    <strong class="td_score">85<em>:</em>111</strong>
+                                    <img src="https://dthumb-phinf.pstatic.net/?type=f92_92&amp;refresh=1&amp;src=https://imgsports.pstatic.net/images/emblem/new/nba/default/IND.png"
+                                        onerror="javascript:this.src='https://imgsports.pstatic.net/images/emblem/new/no_emblem_s_square.png';"
+                                        width="25" height="25" alt="인디애나" title="인디애나">
+                                    <span class="team_rgt">인디애나</span>
+                                </td>
+                                <td>
+                                    <span class="td_btn">
+                                        <img width="61" height="23" alt="경기영상"
+                                            src="https://imgsports.pstatic.net/images/section/volleyball/css/btn_vod_off.gif">
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="td_stadium">뱅커스 라이프 필드하우스</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="td_hour">09:00</span></td>
+                                <td><span class="team_lft">클리블랜드</span>
+                                    <img src="https://dthumb-phinf.pstatic.net/?type=f92_92&amp;refresh=1&amp;src=https://imgsports.pstatic.net/images/emblem/new/nba/default/CLE.png"
+                                        onerror="javascript:this.src='https://imgsports.pstatic.net/images/emblem/new/no_emblem_s_square.png';"
+                                        width="25" height="25" alt="클리블랜드" title="클리블랜드">
+                                    <strong class="td_score">97<em>:</em>98</strong>
+                                    <img src="https://dthumb-phinf.pstatic.net/?type=f92_92&amp;refresh=1&amp;src=https://imgsports.pstatic.net/images/emblem/new/nba/default/PHI.png"
+                                        onerror="javascript:this.src='https://imgsports.pstatic.net/images/emblem/new/no_emblem_s_square.png';"
+                                        width="25" height="25" alt="필라델피아" title="필라델피아">
+                                    <span class="team_rgt">필라델피아</span>
+                                </td>
+                                <td>
+                                    <span class="td_btn">
+                                        <img width="61" height="23" alt="경기영상"
+                                            src="https://imgsports.pstatic.net/images/section/volleyball/css/btn_vod_off.gif">
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="td_stadium">웰스 파고 센터</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td_hour">09:30</span></td>
+                                <td><span class="team_lft">디트로이트</span>
+                                    <img src="https://dthumb-phinf.pstatic.net/?type=f92_92&amp;refresh=1&amp;src=https://imgsports.pstatic.net/images/emblem/new/nba/default/DET.png"
+                                        onerror="javascript:this.src='https://imgsports.pstatic.net/images/emblem/new/no_emblem_s_square.png';"
+                                        width="25" height="25" alt="디트로이트" title="디트로이트">
+                                    <strong class="td_score">108<em>:</em>117</strong>
+                                    <img src="https://dthumb-phinf.pstatic.net/?type=f92_92&amp;refresh=1&amp;src=https://imgsports.pstatic.net/images/emblem/new/nba/default/MIA.png"
+                                        onerror="javascript:this.src='https://imgsports.pstatic.net/images/emblem/new/no_emblem_s_square.png';"
+                                        width="25" height="25" alt="마이애미" title="마이애미">
+                                    <span class="team_rgt">마이애미</span>
+                                </td>
+                                <td>
+                                    <span class="td_btn">
+                                        <img width="61" height="23" alt="경기영상"
+                                            src="https://imgsports.pstatic.net/images/section/volleyball/css/btn_vod_off.gif">
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="td_stadium">아메리칸 에어라인스 아레나</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="td_hour">10:00</span></td>
+                                <td><span class="team_lft">뉴욕</span>
+                                    <img src="https://dthumb-phinf.pstatic.net/?type=f92_92&amp;refresh=1&amp;src=https://imgsports.pstatic.net/images/emblem/new/nba/default/NY.png"
+                                        onerror="javascript:this.src='https://imgsports.pstatic.net/images/emblem/new/no_emblem_s_square.png';"
+                                        width="25" height="25" alt="뉴욕" title="뉴욕">
+                                    <strong class="td_score">102<em>:</em>120</strong>
+                                    <img src="https://dthumb-phinf.pstatic.net/?type=f92_92&amp;refresh=1&amp;src=https://imgsports.pstatic.net/images/emblem/new/nba/default/CHI.png"
+                                        onerror="javascript:this.src='https://imgsports.pstatic.net/images/emblem/new/no_emblem_s_square.png';"
+                                        width="25" height="25" alt="시카고" title="시카고">
+                                    <span class="team_rgt">시카고</span>
+                                </td>
+                                <td>
+                                    <span class="td_btn">
+                                        <img width="61" height="23" alt="경기영상"
+                                            src="https://imgsports.pstatic.net/images/section/volleyball/css/btn_vod_off.gif">
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="td_stadium">유나이티드 센터</span>
+                                </td>
+                            </tr>
+
+              
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--END Naver sport_nba crawling-->
+        </div>
+
+        <div class="content-head">
+            <h3>인기 영상</h3>
+        </div>
+
+        <div class="content-hotvideo">
+            <div class="content-hotvideo-group">
+                <video controls>
+                    <source src="../video/data1.mp4" type="video/mp4">
+                </video>
+                <p class="content-hotvideo-group-videotext"><a href="#">Melo’s Hot Start | Best of Carmelo Anthony’s First 6 Games | 2019-20 NBA Season </a></p>
+            </div>
+            <div class="content-hotvideo-group">
+                <video controls>
+                    <source src="../video/data2.mp4" type="video/mp4">
+                </video>
+                <p class="content-hotvideo-group-videotext"><a href="#">Every Angle Of Zach LaVine's Game Winner | Nov. 23, 2019 </a></p>
+            </div>
+            <div class="content-hotvideo-group">
+                <video controls>
+                    <source src="../video/data3.mp4" type="video/mp4">
+                </video>
+                <p class="content-hotvideo-group-videotext"><a href="#">NBA's Best Plays | October 2019-20 NBA Season </a></p>
+            </div>
+            <div class="content-hotvideo-group">
+                <video controls>
+                    <source src="../video/data4.mp4" type="video/mp4">
+                </video>
+                <p class="content-hotvideo-group-videotext"><a href="#">NBA's Ultimate Dunk Contest Flashback 1984-2016: Michael Jordan, Kobe Bryant & Vince Carter </a></p>
+            </div>
+        </div>
+
+        <div class="content-head">
+            <h3>최신 영상</h3>
+        </div>
+
+        <div class="content-hotvideo">
+            <div class="content-hotvideo-group">
+                <video controls>
+                    <source src="../video/data1.mp4" type="video/mp4">
+                </video>
+                <p class="content-hotvideo-group-videotext"><a href="#">JAZZ at GRIZZLIES | FULL GAME HIGHLIGHTS | November 29, 2019</a></p>
+                <p>조회수 1,227회 •2019. 11. 30.</p>
+            </div>
+            <div class="content-hotvideo-group">
+                <video controls>
+                    <source src="../video/data2.mp4" type="video/mp4">
+                </video>
+                <p class="content-hotvideo-group-videotext"><a href="#">Jonas Valanciunas nets 10th double-double w/ 22 Points, 17 rebounds vs Utah Jazz | November 29, 2019</a></p>
+                <p>조회수 927회 •2019. 11. 30.</p>
+            </div>
+            <div class="content-hotvideo-group">
+                <video controls>
+                    <source src="../video/data3.mp4" type="video/mp4">
+                </video>
+                <p class="content-hotvideo-group-videotext"><a href="#">Luka Doncic Pours In 42 PTS, Leads Mavs!</a></p>
+                <p>조회수 945회 •2019. 11. 30.</p>
+            </div>
+            <div class="content-hotvideo-group">
+                <video controls>
+                    <source src="../video/data4.mp4" type="video/mp4">
+                </video>
+                <p class="content-hotvideo-group-videotext"><a href="#">Lakers vs Clippers Full Game Highlights! 2019 NBA Season</a></p>
+                <p>조회수 1,210회 •2019. 11. 30.</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

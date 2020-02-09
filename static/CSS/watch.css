@@ -1,0 +1,126 @@
+
+.searchbar-container{
+    margin-top: 15px;
+}
+
+.searchbar-container-filter{
+    margin-bottom: 10px;
+}
+
+.searchbar-container-filter i{
+    cursor: pointer;
+}
+
+.searchbar-container-filter i a{
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+.searchbar-container-filtermenu{
+    display: none;
+    width: 74%;
+    height: 230px;
+    margin-bottom : 10px;
+    background-color: rgb(250, 248, 248);
+    padding:5px;
+    padding-left:20px
+}
+
+.searchbar-container-filterlist{
+    display: block;
+    float: left;
+    margin-right: 100px;
+    
+}
+
+.searchbar-container-filterlist ul{
+    padding:0;
+    margin-top: 10px;
+}
+
+.searchbar-container-filterlist li{
+    padding-bottom: 10px;
+}
+
+
+.searchbar-container-filterlist li a{
+    color: rgb(66, 65, 65);
+    font-size: 15px;
+}
+
+.searchbar-container-filterlist h5{
+    margin-top:7px;
+    margin-bottom:8px;
+    font-size: 18px;
+    padding-bottom: 8px;
+    border-bottom : 1px solid rgb(88, 87, 87)
+}
+
+.search-container{
+    display: block;
+    height: 770px;
+}
+
+.search-list-head{
+    width: 1200px;
+    border-bottom:1px solid rgb(214, 211, 211);
+}
+
+video{
+    width: 1200px;
+    
+    margin-top: 0;
+}
+
+.search-list{
+    display: block;
+}
+
+.search-list-group{
+    padding: 10px 10px 8px 10px;
+    display: block;
+    width: auto;
+    height: 660px;
+ 
+}
+
+.search-list-group-video{
+    position: absolute;
+    left: 0;
+    display: inline-block;
+}
+
+.search-list-group-comment{
+    position: absolute;
+    display: block;
+    margin-left: 320px;
+}
+
+.search-list-group-comment-videoname{
+    font-size: 20px;
+    margin-bottom:10px;
+}
+
+.AA{
+    float: left;
+}
+
+.BBB{
+    width: 100px;
+    height: 40px;
+    float: left;
+    margin-left: 570px;
+    margin-top: 35px;
+}
+
+.CC{
+    display: block;
+}
+
+.DD{
+    border-top: 1px solid rgb(214, 211, 211);
+    content: url(../img/경기기록.jpg);
+    background-repeat: no-repeat;
+}

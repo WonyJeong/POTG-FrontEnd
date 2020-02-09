@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.leftside {
+  color: #343a40;
+  position: absolute;
+  display: flex;
+  margin: 0 auto;
+  margin-left: 0;
+  flex-direction: column;
+  background: #adb5bd;
+  border-radius: 4px;
+  padding: 0;
+  height: 100%;
+  width: 230px;
+  opacity: 0.9;
+}
+
+.sidebar {
+}
+
+.sidebar-head {
+  display: flex;
+  padding-left: 30px;
+  padding-top: 16px;
+}
+
+.sidebar-head {
+  margin-top: 0;
+}
+
+.sidebar-head i {
+}
+
+.sidebar-head b {
+  font-size: 36px;
+
+  margin-left: 16px;
+}
+
+.sidebar-head:hover,
+.sidebar-menu-list :hover {
+  color: #ced4da;
+  transition: 0.25s ease-in;
+}
+
+.sidebar-menu {
+  margin-top: 30px;
+}
+
+.sidebar-menu-list span {
+  font-weight: bold;
+}
+
+.sidebar-menu-list {
+  list-style: none;
+  font-size: px;
+}
+
+.sidebar-menu-list {
+  padding-bottom: 10px;
+}
+
+.sidebar-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  border-radius: 50%;
+}
+
+.circle-button {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #212529;
+  border-radius: 50%;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-button:hover {
+  transform: rotate(90deg);
+  transition: 0.25s ease-in;
+}
+
+.circle-button:out-of-range {
+  transform: rotate(-90deg);
+  transition: 0.25s ease-in;
+}
+
+.contents {
+  display: flex;
+
+  background: tomato;
+  width: 512px;
+  height: 412px;
+}
+
+.contents2 {
+  display: flex;
+
+  background: gold;
+  width: 512px;
+  height: 412px;
+}

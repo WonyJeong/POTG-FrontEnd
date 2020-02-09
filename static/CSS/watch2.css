@@ -1,0 +1,21 @@
+.watch-container{
+    border: 1px solid black;
+    width: 70%;
+}
+
+
+.watch-container-custom-menugroup{
+    width: 300px;
+    height: 10px;
+    background-color: green;
+}
+
+.watch-container-custom-menugroup-list{
+    float: left;
+    text-align: center;
+}
+
+.watch-container-custom-menugroup-list ul{
+    
+}
+
