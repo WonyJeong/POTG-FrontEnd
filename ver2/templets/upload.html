@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>POTG</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    />
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <link rel="stylesheet" href="../static/css/upload.css" />
+    <script src="../static/JS/jquery-3.4.1.min.js"></script>
+    <!--Load HTML Files-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#leftsidebar").load("leftsidebar.html");
+        $("#header").load("header.html");
+      });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        var fileTarget = $(".filebox .upload-hidden");
+        fileTarget.on("change", function() {
+          if (window.FileReader) {
+            var filename = $(this)[0].files[0].name;
+          } else {
+            var filename = $(this)
+              .val()
+              .split("/")
+              .pop()
+              .split("\\")
+              .pop();
+          }
+          $(this)
+            .siblings(".upload-name")
+            .val(filename);
+          $("deleteData").css("display", "block");
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="header"></div>
+    <div class="contents">
+      <div id="leftsidebar"></div>
+      <div class="main-contents-container">
+        <div class="main-contents"></div>
+      </div>
+    </div>
+
+    <script src="../static/JS/upload_checkValue.js"></script>
+  </body>
+</html>

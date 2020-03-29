@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>POTG</title>
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <link rel="stylesheet" href="../static/css/search.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    />
+
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+
+    <!--Load HTML Files-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#headers").load("header.html");
+        $("#leftSidebar").load("leftSidebar.html");
+      });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $(".searchbar-container-filter>i").click(function() {
+          var submenu = $(".searchbar-container-filtermenu");
+          submenu.animate({ height: "toggle", opacity: "toggle" }, "fast");
+          submenu.css("display", "flex");
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="headers"></div>
+    <div class="contents">
+      <div id="leftSidebar"></div>
+      <div class="main-contents-container">
+        <div class="main-contents">
+          <div class="search-content">
+            <!-- toggle menu -->
+            <div class="searchbar-container">
+              <div class="searchbar-container-filter">
+                <i class="fas fa-bars "><a>필터</a></i>
+              </div>
+
+              <div class="searchbar-container-filtermenu">
+                <div class="searchbar-container-filterlist">
+                  <h5>업로드 날짜</h5>
+                  <ul>
+                    <li><a href="#">오늘</a></li>
+                    <li><a href="#">이번주</a></li>
+                    <li><a href="#">전체</a></li>
+                  </ul>
+                </div>
+                <div class="searchbar-container-filterlist">
+                  <h5>정렬기준</h5>
+                  <ul>
+                    <li><a href="#">조회순</a></li>
+                    <li><a href="#">최신순</a></li>
+                    <li><a href="#">인기순</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- list -->
+            <div class="search-list">
+              <div class="search-list-item">
+                <video controls>
+                  <source src="../../video/data1.mp4" type="video/mp4" />
+                </video>
+                <div class="search-list-item-script">
+                  <h3>
+                    JAZZ at GRIZZLIES | FULL GAME HIGHLIGHTS | November 29, 2019
+                  </h3>
+                  <p>조회수 1,227회 •2019. 11. 24.</p>
+                </div>
+              </div>
+              <div class="search-list-item">
+                <video controls>
+                  <source src="../../video/data1.mp4" type="video/mp4" />
+                </video>
+                <div class="search-list-item-script">
+                  <h3>
+                    JAZZ at GRIZZLIES | FULL GAME HIGHLIGHTS | November 29, 2019
+                  </h3>
+                  <p>조회수 1,227회 •2019. 11. 24.</p>
+                </div>
+              </div>
+              <div class="search-list-item">
+                <video controls>
+                  <source src="../../video/data1.mp4" type="video/mp4" />
+                </video>
+                <div class="search-list-item-script">
+                  <h3>
+                    JAZZ at GRIZZLIES | FULL GAME HIGHLIGHTS | November 29, 2019
+                  </h3>
+                  <p>조회수 1,227회 •2019. 11. 24.</p>
+                </div>
+              </div>
+              <div class="search-list-item">
+                <video controls>
+                  <source src="../../video/data1.mp4" type="video/mp4" />
+                </video>
+                <div class="search-list-item-script">
+                  <h3>
+                    JAZZ at GRIZZLIES | FULL GAME HIGHLIGHTS | November 29, 2019
+                  </h3>
+                  <p>조회수 1,227회 •2019. 11. 24.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

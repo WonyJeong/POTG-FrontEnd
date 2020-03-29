@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>POTG</title>
+    <link rel="stylesheet" , href="../static/css/index.css" />
+    <link rel="stylesheet" , href="../static/css/watch.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    />
+
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+
+    <!--Load HTML Files-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#headers").load("header.html");
+      });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $(".toggle-btn").click(function() {
+          var submenu = $(".toggle-menu");
+          submenu.animate({ height: "toggle", opacity: "toggle" }, "fast");
+          submenu.css("display", "flex");
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="headers"></div>
+    <div class="watch-container">
+      <div class="contents-container">
+        
+        <div class="toggle-btn">
+          <i class="fas fa-bars "></i>
+          <span>하이라이트 커스터마이징</span>
+        </div>
+
+        <div class="toggle-menu">
+            <div class="toggle-menu-list">
+                <h5>팀 구분</h5>
+                <ul>
+                    <li>홈</li>
+                    <li>어웨이</li>
+                </ul>
+            </div>
+            <div class="toggle-menu-list">
+                    <h5>플레이</h5>
+                    <ul>
+                        <li>덩크</li>
+                        <li>3점슛</li>
+                        <li>2점슛</li>
+                        <li>스틸</li>
+                        <li>레이업슛</li>
+                        <li>자유투</li>
+                    </ul>
+                </div>
+        </div>
+
+
+        <div class="video-container">
+            <video controls>
+                <source src="../../video/data1.mp4" type="video/mp4" />
+            </video>
+
+            <div class ='video-contents'>
+                [11.29] Lakers vs Spurs Game Highlights! 2019 NBA Season
+                <div class="video-desc">
+                    <p>조회수 963 추천수 153 •2019. 11. 29.</p>
+                    <div class = btn-group>
+                        <i class="far fa-thumbs-up">Like</i>
+                        <i class="fas fa-share">Share</i>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="play-record-container">
+            <div class="record-header">
+                경기기록
+            </div> 
+            <div class="play-record">
+                asd
+            </div>
+        </div>
+
+
+
+    </div>
+  </body>
+</html>

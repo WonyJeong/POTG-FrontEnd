@@ -1,0 +1,87 @@
+.contents {
+  margin: 0 auto;
+  margin-top: 0;
+  width: 100%;
+  left: 0px;
+}
+
+.main-contents-container {
+  position: absolute;
+  left: 0;
+  padding-top: 56px;
+  padding-left: 20px;
+  margin-left: 150px;
+  display: flex;
+  justify-content: center;
+  width: 88%;
+}
+
+.main-contents {
+  display: flex;
+  margin-top: 15px;
+  flex-direction: column;
+  justify-content: center;
+  width: 1250px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+}
+
+.calendar-header h3 {
+  margin-top: 12px;
+}
+
+.calendar-header a {
+  margin-left: 1rem;
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: gray;
+}
+
+/* Calendar crawling styling */
+/* import calendar.css */
+/* /Calendar crawling styling */
+.date-controller-container {
+}
+
+.date-controller {
+  display: flex;
+  width: 1024px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.date-controller i {
+  padding: 0.375rem;
+}
+
+.date-controller a {
+  border: none;
+  border-radius: 10%;
+  color: white;
+  background: #868e96;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.date-controller a :hover {
+  border-radius: 10%;
+  color: white;
+  background: #adb5bd;
+}
+
+.date-controller a :active {
+  border-radius: 10%;
+  color: white;
+  background: #495057;
+}
+
+.date-controller h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}

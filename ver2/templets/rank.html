@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>POTG</title>
+    <link rel="stylesheet" , href="../static/css/index.css" />
+    <link rel="stylesheet" href="../static/css/rank.css" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" />
+
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+
+    <!--Load HTML Files-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#headers").load("header.html");
+            $("#leftSidebar").load("leftSidebar.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="headers"></div>
+    <div class="contents">
+        <div id="leftSidebar"></div>
+        <div class="main-contents-container">
+            <div class="main-contents">
+                <h3>기록 / 순위</h3>
+
+                <div class="rank-controller">
+                    <div class="now-conference">
+                        -동부 컨퍼런스
+                    </div>
+
+                    <div class="date-controller">
+                        <span th:if="${nextYear!=0}">
+                            <a th:href="@{/rank(year=${nextYear},conference=${conference})}">
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </span>
+
+                        <!-- <h3 th:text="${currentYear-1} + '-' + ${currentYear}"></h3> -->
+                        <h3>2020-2021</h3>
+
+                        <span th:if="${beforeYear!=0}">
+                            <a th:href="@{/rank(year=${beforeYear},conference=${conference})}">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </span>
+                    </div>
+
+                    <div class="set-conference">
+                        <a class="set-east" th:href="@{/rank(year=${currentYear},conference=EAST)}">
+                            동부 컨퍼런스
+                        </a>
+
+                        <a class="set-west" th:href="@{/rank(year=${currentYear},conference=WEST)}">
+                            서부 컨퍼런스
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tbl_box">
+                    <table cellspacing="0" cellpadding="0">
+                        <colgroup>
+                            <col width="80" />
+                            <col width="190" />
+                            <col width="60" />
+                            <col width="60" />
+                            <col width="45" />
+                            <col width="45" />
+                            <col width="60" />
+                            <col width="45" />
+                            <col width="45" />
+                            <col width="45" />
+                            <col width="60" />
+                            <col width="60" />
+                            <col width="80" />
+                            <col width="80" />
+                            <col width="60" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <div class="rank">
+                                        <strong><span class="blind">순위</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="team">
+                                        <strong><span class="blind">팀</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="dvs">
+                                        <strong><span class="blind">디비전</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="gcnt">
+                                        <strong><span class="blind">경기수</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="wpnt">
+                                        <strong id="regularTeamRecordList_win"><span class="blind">승</span></strong>
+
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="lpnt">
+                                        <strong id="regularTeamRecordList_lose"><span class="blind">패</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="wnrt">
+                                        <strong id="regularTeamRecordList_winRate" class="sort"><span
+                                                class="blind">승률</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="wlpnt">
+                                        <span class="blind">승차</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="homew">
+                                        <span class="blind">홈승</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="homel">
+                                        <span class="blind">홈패</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="ldw">
+                                        <span class="blind">원정승</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="ldl">
+                                        <strong id="regularTeamRecordList_awayLose"><span
+                                                class="blind">원정패</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="dvsw">
+                                        <strong id="regularTeamRecordList_divWin"><span
+                                                class="blind">디비전승</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="dvsl">
+                                        <strong id="regularTeamRecordList_divLose"><span
+                                                class="blind">디비전패</span></strong>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="rly">
+                                        <strong id="regularTeamRecordList_streak"><span class="blind">연속</span></strong>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="regularTeamRecordList_table">
+                            <tr>
+                                <th><strong>1</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/MIL.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'MIL');" />
+                                        <span id="team_MIL">밀워키</span>
+                                    </div>
+                                </td>
+                                <td><span>CEN</span></td>
+                                <td><span>65</span></td>
+                                <td><span>53</span></td>
+                                <td><span>12</span></td>
+                                <td><strong>0.815</strong></td>
+                                <td><span>0.0</span></td>
+                                <td><span>28</span></td>
+                                <td><span>3</span></td>
+                                <td><span>25</span></td>
+                                <td><span>9</span></td>
+                                <td><span>13</span></td>
+                                <td><span>1</span></td>
+                                <td class="last"><span>3패</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>2</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/TOR.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'TOR');" />
+                                        <span id="team_TOR">토론토</span>
+                                    </div>
+                                </td>
+                                <td><span>ATL</span></td>
+                                <td><span>64</span></td>
+                                <td><span>46</span></td>
+                                <td><span>18</span></td>
+                                <td><strong>0.719</strong></td>
+                                <td><span>6.5</span></td>
+                                <td><span>23</span></td>
+                                <td><span>9</span></td>
+                                <td><span>23</span></td>
+                                <td><span>9</span></td>
+                                <td><span>8</span></td>
+                                <td><span>4</span></td>
+                                <td class="last"><span>4승</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>3</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/BOS.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'BOS');" />
+                                        <span id="team_BOS">보스턴</span>
+                                    </div>
+                                </td>
+                                <td><span>ATL</span></td>
+                                <td><span>64</span></td>
+                                <td><span>43</span></td>
+                                <td><span>21</span></td>
+                                <td><strong>0.672</strong></td>
+                                <td><span>9.5</span></td>
+                                <td><span>23</span></td>
+                                <td><span>9</span></td>
+                                <td><span>20</span></td>
+                                <td><span>12</span></td>
+                                <td><span>7</span></td>
+                                <td><span>6</span></td>
+                                <td class="last"><span>1승</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>4</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/MIA.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'MIA');" />
+                                        <span id="team_MIA">마이애미</span>
+                                    </div>
+                                </td>
+                                <td><span>SEA</span></td>
+                                <td><span>65</span></td>
+                                <td><span>41</span></td>
+                                <td><span>24</span></td>
+                                <td><strong>0.631</strong></td>
+                                <td><span>12.0</span></td>
+                                <td><span>27</span></td>
+                                <td><span>5</span></td>
+                                <td><span>14</span></td>
+                                <td><span>19</span></td>
+                                <td><span>10</span></td>
+                                <td><span>4</span></td>
+                                <td class="last"><span>1패</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>5</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/IND.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'IND');" />
+                                        <span id="team_IND">인디애나</span>
+                                    </div>
+                                </td>
+                                <td><span>CEN</span></td>
+                                <td><span>65</span></td>
+                                <td><span>39</span></td>
+                                <td><span>26</span></td>
+                                <td><strong>0.600</strong></td>
+                                <td><span>14.0</span></td>
+                                <td><span>21</span></td>
+                                <td><span>11</span></td>
+                                <td><span>18</span></td>
+                                <td><span>15</span></td>
+                                <td><span>8</span></td>
+                                <td><span>7</span></td>
+                                <td class="last"><span>1패</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>6</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/PHI.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'PHI');" />
+                                        <span id="team_PHI">필라델피아</span>
+                                    </div>
+                                </td>
+                                <td><span>ATL</span></td>
+                                <td><span>65</span></td>
+                                <td><span>39</span></td>
+                                <td><span>26</span></td>
+                                <td><strong>0.600</strong></td>
+                                <td><span>14.0</span></td>
+                                <td><span>29</span></td>
+                                <td><span>2</span></td>
+                                <td><span>10</span></td>
+                                <td><span>24</span></td>
+                                <td><span>11</span></td>
+                                <td><span>4</span></td>
+                                <td class="last"><span>1승</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>7</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/BKN.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'BKN');" />
+                                        <span id="team_BKN">브루클린</span>
+                                    </div>
+                                </td>
+                                <td><span>ATL</span></td>
+                                <td><span>64</span></td>
+                                <td><span>30</span></td>
+                                <td><span>34</span></td>
+                                <td><strong>0.469</strong></td>
+                                <td><span>22.5</span></td>
+                                <td><span>18</span></td>
+                                <td><span>14</span></td>
+                                <td><span>12</span></td>
+                                <td><span>20</span></td>
+                                <td><span>6</span></td>
+                                <td><span>9</span></td>
+                                <td class="last"><span>3승</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>8</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/ORL.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'ORL');" />
+                                        <span id="team_ORL">올랜도</span>
+                                    </div>
+                                </td>
+                                <td><span>SEA</span></td>
+                                <td><span>65</span></td>
+                                <td><span>30</span></td>
+                                <td><span>35</span></td>
+                                <td><strong>0.462</strong></td>
+                                <td><span>23.0</span></td>
+                                <td><span>16</span></td>
+                                <td><span>15</span></td>
+                                <td><span>14</span></td>
+                                <td><span>20</span></td>
+                                <td><span>9</span></td>
+                                <td><span>5</span></td>
+                                <td class="last"><span>3승</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>9</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/WAS.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'WAS');" />
+                                        <span id="team_WAS">워싱턴</span>
+                                    </div>
+                                </td>
+                                <td><span>SEA</span></td>
+                                <td><span>64</span></td>
+                                <td><span>24</span></td>
+                                <td><span>40</span></td>
+                                <td><strong>0.375</strong></td>
+                                <td><span>28.5</span></td>
+                                <td><span>16</span></td>
+                                <td><span>16</span></td>
+                                <td><span>8</span></td>
+                                <td><span>24</span></td>
+                                <td><span>5</span></td>
+                                <td><span>9</span></td>
+                                <td class="last"><span>1승</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>10</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/CHA.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'CHA');" />
+                                        <span id="team_CHA">샬럿</span>
+                                    </div>
+                                </td>
+                                <td><span>SEA</span></td>
+                                <td><span>65</span></td>
+                                <td><span>23</span></td>
+                                <td><span>42</span></td>
+                                <td><strong>0.354</strong></td>
+                                <td><span>30.0</span></td>
+                                <td><span>10</span></td>
+                                <td><span>21</span></td>
+                                <td><span>13</span></td>
+                                <td><span>21</span></td>
+                                <td><span>2</span></td>
+                                <td><span>7</span></td>
+                                <td class="last"><span>1승</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>11</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/CHI.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'CHI');" />
+                                        <span id="team_CHI">시카고</span>
+                                    </div>
+                                </td>
+                                <td><span>CEN</span></td>
+                                <td><span>65</span></td>
+                                <td><span>22</span></td>
+                                <td><span>43</span></td>
+                                <td><strong>0.338</strong></td>
+                                <td><span>31.0</span></td>
+                                <td><span>14</span></td>
+                                <td><span>20</span></td>
+                                <td><span>8</span></td>
+                                <td><span>23</span></td>
+                                <td><span>7</span></td>
+                                <td><span>9</span></td>
+                                <td class="last"><span>1승</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>12</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/NY.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'NY');" />
+                                        <span id="team_NY">뉴욕</span>
+                                    </div>
+                                </td>
+                                <td><span>ATL</span></td>
+                                <td><span>66</span></td>
+                                <td><span>21</span></td>
+                                <td><span>45</span></td>
+                                <td><strong>0.318</strong></td>
+                                <td><span>32.5</span></td>
+                                <td><span>11</span></td>
+                                <td><span>22</span></td>
+                                <td><span>10</span></td>
+                                <td><span>23</span></td>
+                                <td><span>2</span></td>
+                                <td><span>11</span></td>
+                                <td class="last"><span>1승</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>13</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/DET.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'DET');" />
+                                        <span id="team_DET">디트로이트</span>
+                                    </div>
+                                </td>
+                                <td><span>CEN</span></td>
+                                <td><span>66</span></td>
+                                <td><span>20</span></td>
+                                <td><span>46</span></td>
+                                <td><strong>0.303</strong></td>
+                                <td><span>33.5</span></td>
+                                <td><span>11</span></td>
+                                <td><span>22</span></td>
+                                <td><span>9</span></td>
+                                <td><span>24</span></td>
+                                <td><span>5</span></td>
+                                <td><span>10</span></td>
+                                <td class="last"><span>5패</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>14</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/ATL.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'ATL');" />
+                                        <span id="team_ATL">애틀랜타</span>
+                                    </div>
+                                </td>
+                                <td><span>SEA</span></td>
+                                <td><span>67</span></td>
+                                <td><span>20</span></td>
+                                <td><span>47</span></td>
+                                <td><strong>0.299</strong></td>
+                                <td><span>34.0</span></td>
+                                <td><span>14</span></td>
+                                <td><span>20</span></td>
+                                <td><span>6</span></td>
+                                <td><span>27</span></td>
+                                <td><span>6</span></td>
+                                <td><span>7</span></td>
+                                <td class="last"><span>1패</span></td>
+                            </tr>
+
+                            <tr>
+                                <th><strong>15</strong></th>
+                                <td class="tm">
+                                    <div>
+                                        <img src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/nba/default/CLE.png&amp;type=f25_25&amp;refresh=1"
+                                            width="25" height="25" alt="구단로고"
+                                            onerror="javaScript:noTeamEmblemImg(this, 'team', 'CLE');" />
+                                        <span id="team_CLE">클리블랜드</span>
+                                    </div>
+                                </td>
+                                <td><span>CEN</span></td>
+                                <td><span>65</span></td>
+                                <td><span>19</span></td>
+                                <td><span>46</span></td>
+                                <td><strong>0.292</strong></td>
+                                <td><span>34.0</span></td>
+                                <td><span>11</span></td>
+                                <td><span>25</span></td>
+                                <td><span>8</span></td>
+                                <td><span>21</span></td>
+                                <td><span>4</span></td>
+                                <td><span>10</span></td>
+                                <td class="last"><span>1패</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="h_ln"></div>
+                    <div class="wnrt_on" id="regularTeamRecordList_ColumnChecker">
+                        <span class="bl" style="height:512px"></span>
+                        <span class="bt"></span>
+                        <span class="br" style="height:512px"></span>
+                        <span class="bb" style="top:511px"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
