@@ -2,18 +2,42 @@ body {
   margin: 0;
 }
 
-.container {
+.content-container {
   width: 100%;
+  height: 500px;
   display: flex;
-  justify-content: start;
+  justify-content: center;
+  align-items: center;
 }
 
-.box1 {
+.error-page-contents {
+  margin-top: 5%;
   display: flex;
-  justify-content: start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
 
-  width: 100px;
-  height: 100px;
-  border: 1px solid red;
+.error-page-contents h1 {
+  font-size: 8rem;
+  color: #868e96;
+  margin-bottom: 0.5rem;
+}
+
+.error-page-contents p {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.home-btn {
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #343a40;
+}
+
+.home-btn a {
+  text-decoration: none;
+  color: white;
 }
