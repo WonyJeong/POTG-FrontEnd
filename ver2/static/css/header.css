@@ -70,6 +70,7 @@ body {
 
 .user-state {
   color: #868e96;
+  cursor: pointer;
 }
 
 .user-state ul {
